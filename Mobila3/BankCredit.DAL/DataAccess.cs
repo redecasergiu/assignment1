@@ -64,6 +64,22 @@ namespace BankCredit.DAL
             }
         }
 
+        public void deleteUser(String username)
+        {
+            using (MySqlConnection conn = new MySqlConnection(connString))
+            {
+                conn.Open();
+                MySqlCommand cmd = new MySqlCommand();
+                cmd.Connection = conn;
+                cmd.CommandText = "call deluser(@username);";
+                cmd.Prepare();
+
+                cmd.Parameters.AddWithValue("@username", username);
+
+                cmd.ExecuteNonQuery();
+            }
+        }
+
         public void addProduct(Product p)
         {
             using (MySqlConnection conn = new MySqlConnection(connString))
@@ -80,6 +96,26 @@ namespace BankCredit.DAL
                 cmd.Parameters.AddWithValue("@size", p.size);
                 cmd.Parameters.AddWithValue("@price", p.price);
                 cmd.Parameters.AddWithValue("@stock", p.stock);
+
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+
+        public void addOrder(Order o)
+        {
+            using (MySqlConnection conn = new MySqlConnection(connString))
+            {
+                conn.Open();
+                MySqlCommand cmd = new MySqlCommand();
+                cmd.Connection = conn;
+                cmd.CommandText = "call addOrder(@a, @b, @c, @d);";
+                cmd.Prepare();
+
+                cmd.Parameters.AddWithValue("@a", o.idcustomer);
+                cmd.Parameters.AddWithValue("@b", o.address);
+                cmd.Parameters.AddWithValue("@c", o.deliverydate);
+                cmd.Parameters.AddWithValue("@d", o.status);
 
                 cmd.ExecuteNonQuery();
             }

@@ -49,5 +49,13 @@ namespace BankCredit
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            UserOperations bl = new UserOperations();
+            bl.DeleteUser(txtUserName.Text);
+
+            MessageBox.Show("Operation succesful");
+        }
     }
 }

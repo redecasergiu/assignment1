@@ -26,5 +26,6 @@ namespace BankCredit.BL
             }
             return true;
         }
+
     }
 }

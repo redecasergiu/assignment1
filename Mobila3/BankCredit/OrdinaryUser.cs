@@ -47,7 +47,31 @@ namespace BankCredit
                 bl.addProduct(n, d, c, s, pp, ss);
             }catch(Exception q)
             {
-                MessageBox.Show("Eroare", "Eroareeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+                MessageBox.Show("Eroare", "Eroare",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void add_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void add_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                String a = addressb.Text;
+                String d = dateb.Value.ToString("yyyy-MM-dd"); ;
+                int c = int.Parse(customeridb.Text);
+                String s = statusb.Text;
+
+                OrderOperations bl = new OrderOperations();
+                bl.addOrder(c, a, d, s);
+            }
+            catch (Exception q)
+            {
+                MessageBox.Show("Eroare", "Eroare",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }

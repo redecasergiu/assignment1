@@ -35,6 +35,7 @@
             this.lblIsAdmin = new System.Windows.Forms.Label();
             this.chkAdmin = new System.Windows.Forms.CheckBox();
             this.btnAdd = new System.Windows.Forms.Button();
+            this.delete = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblUserName
@@ -106,11 +107,22 @@
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
+            // delete
+            // 
+            this.delete.Location = new System.Drawing.Point(137, 320);
+            this.delete.Name = "delete";
+            this.delete.Size = new System.Drawing.Size(75, 44);
+            this.delete.TabIndex = 12;
+            this.delete.Text = "Delete";
+            this.delete.UseVisualStyleBackColor = true;
+            this.delete.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Admin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(426, 402);
+            this.Controls.Add(this.delete);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.chkAdmin);
             this.Controls.Add(this.lblIsAdmin);
@@ -120,7 +132,7 @@
             this.Controls.Add(this.lblUserName);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Admin";
-            this.Text = "Add user";
+            this.Text = "Admin";
             this.Load += new System.EventHandler(this.Admin_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -136,5 +148,6 @@
         private System.Windows.Forms.Label lblIsAdmin;
         private System.Windows.Forms.CheckBox chkAdmin;
         private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.Button delete;
     }
 }

@@ -71,6 +71,7 @@
             this.add.TabIndex = 0;
             this.add.Text = "add";
             this.add.UseVisualStyleBackColor = true;
+            this.add.Click += new System.EventHandler(this.add_Click_1);
             // 
             // update
             // 
