@@ -61,6 +61,9 @@
             this.stock2b = new System.Windows.Forms.TextBox();
             this.id2b = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
+            this.apld = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
+            this.cantitateb = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // add
@@ -329,6 +332,7 @@
             this.id2b.Name = "id2b";
             this.id2b.Size = new System.Drawing.Size(98, 26);
             this.id2b.TabIndex = 3;
+            this.id2b.TextChanged += new System.EventHandler(this.id2b_TextChanged);
             // 
             // label8
             // 
@@ -340,11 +344,39 @@
             this.label8.Text = "id";
             this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
+            // apld
+            // 
+            this.apld.Location = new System.Drawing.Point(604, 414);
+            this.apld.Name = "apld";
+            this.apld.Size = new System.Drawing.Size(214, 41);
+            this.apld.TabIndex = 14;
+            this.apld.Text = "Adauga produs la comanda";
+            this.apld.UseVisualStyleBackColor = true;
+            this.apld.Click += new System.EventHandler(this.apld_Click);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(431, 381);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(71, 20);
+            this.label9.TabIndex = 15;
+            this.label9.Text = "cantitate";
+            // 
+            // cantitateb
+            // 
+            this.cantitateb.Location = new System.Drawing.Point(393, 414);
+            this.cantitateb.Name = "cantitateb";
+            this.cantitateb.Size = new System.Drawing.Size(156, 26);
+            this.cantitateb.TabIndex = 3;
+            // 
             // OrdinaryUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1146, 479);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.apld);
             this.Controls.Add(this.view2);
             this.Controls.Add(this.delete2);
             this.Controls.Add(this.update2);
@@ -367,6 +399,7 @@
             this.Controls.Add(this.name);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.cantitateb);
             this.Controls.Add(this.stock2b);
             this.Controls.Add(this.price2b);
             this.Controls.Add(this.size2b);
@@ -421,5 +454,8 @@
         private System.Windows.Forms.TextBox stock2b;
         private System.Windows.Forms.TextBox id2b;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button apld;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox cantitateb;
     }
 }

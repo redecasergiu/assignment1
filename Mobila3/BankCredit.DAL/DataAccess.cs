@@ -121,6 +121,24 @@ namespace BankCredit.DAL
             }
         }
 
+        public void addProductToOrder(ProductOrder po)
+        {
+            using (MySqlConnection conn = new MySqlConnection(connString))
+            {
+                conn.Open();
+                MySqlCommand cmd = new MySqlCommand();
+                cmd.Connection = conn;
+                cmd.CommandText = "call laordin(@b, @c, @d);";
+                cmd.Prepare();
+
+                cmd.Parameters.AddWithValue("@b", po.idproduct);
+                cmd.Parameters.AddWithValue("@c", po.idcommand);
+                cmd.Parameters.AddWithValue("@d", po.cantitate);
+
+                cmd.ExecuteNonQuery();
+            }
+        }
+
         public IList<Account> GetAccountsForUser(int userID)
         {
             IList<Account> creditList = new List<Account>();

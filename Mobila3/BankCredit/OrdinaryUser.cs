@@ -75,5 +75,28 @@ namespace BankCredit
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void id2b_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void apld_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int idp = int.Parse(id2b.Text);
+                int idc = int.Parse(idb.Text);
+                int ca = int.Parse(cantitateb.Text);
+
+                ProductOrderOperations bl = new ProductOrderOperations();
+                bl.addProductToOrder(idp,idc,ca);
+            }
+            catch (Exception q)
+            {
+                MessageBox.Show("Eroare", "Eroare",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }
