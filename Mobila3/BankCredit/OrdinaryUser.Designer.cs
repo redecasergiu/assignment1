@@ -84,6 +84,7 @@
             this.update.TabIndex = 1;
             this.update.Text = "update";
             this.update.UseVisualStyleBackColor = true;
+            this.update.Click += new System.EventHandler(this.update_Click);
             // 
             // view
             // 
@@ -211,6 +212,7 @@
             this.update2.TabIndex = 13;
             this.update2.Text = "update2";
             this.update2.UseVisualStyleBackColor = true;
+            this.update2.Click += new System.EventHandler(this.update2_Click);
             // 
             // delete2
             // 

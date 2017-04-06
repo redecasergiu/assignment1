@@ -113,5 +113,31 @@ namespace BankCredit
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void update_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void update2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                String n = name2b.Text;
+                String d = description2b.Text;
+                String c = color2b.Text;
+                int s = int.Parse(size2b.Text);
+                double pp = double.Parse(price2b.Text);
+                int ss = int.Parse(stock2b.Text);
+
+                ProductOperations bl = new ProductOperations();
+                bl.updateProduct(n, d, c, s, pp, ss);
+            }
+            catch (Exception q)
+            {
+                MessageBox.Show("Eroare", "Eroare",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }
