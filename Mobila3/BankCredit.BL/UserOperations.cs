@@ -58,5 +58,11 @@ namespace BankCredit.BL
             DataAccess dal = new DataAccess();
             return dal.GetAccountsForUser(userId);
         }
+
+        public IList<User> getUsers()
+        {
+            DataAccess dal = new DataAccess();
+            return dal.getUsers();
+        }
     }
 }

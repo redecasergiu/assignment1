@@ -253,6 +253,31 @@ namespace BankCredit.DAL
             return productList;
         }
 
+        public IList<User> getUsers()
+        {
+            IList<User> productList = new List<User>();
+            using (MySqlConnection conn = new MySqlConnection(connString))
+            {
+                conn.Open();
+                string statement = "select * from users";
+
+                MySqlCommand cmd = new MySqlCommand(statement, conn);
+                MySqlDataReader reader = cmd.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        User users = new User();
+                        users.id = reader.GetInt32("id");
+                        users.name = reader.GetString("name");
+                        users.isadmin = reader.GetString("isadmin").Equals("True")?true:false;
+                        productList.Add(users);
+                    }
+                }
+            }
+            return productList;
+        }
+
 
     }
 }

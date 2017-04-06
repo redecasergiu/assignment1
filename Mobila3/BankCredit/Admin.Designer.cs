@@ -37,6 +37,12 @@
             this.btnAdd = new System.Windows.Forms.Button();
             this.delete = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.getup = new System.Windows.Forms.Button();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NAME = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ISADMIN = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // lblUserName
@@ -128,11 +134,51 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ID,
+            this.NAME,
+            this.ISADMIN});
+            this.dataGridView1.Location = new System.Drawing.Point(457, 23);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowTemplate.Height = 28;
+            this.dataGridView1.Size = new System.Drawing.Size(358, 150);
+            this.dataGridView1.TabIndex = 14;
+            // 
+            // getup
+            // 
+            this.getup.Location = new System.Drawing.Point(575, 207);
+            this.getup.Name = "getup";
+            this.getup.Size = new System.Drawing.Size(107, 35);
+            this.getup.TabIndex = 15;
+            this.getup.Text = "Get Users";
+            this.getup.UseVisualStyleBackColor = true;
+            this.getup.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // ID
+            // 
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            // 
+            // NAME
+            // 
+            this.NAME.HeaderText = "NAME";
+            this.NAME.Name = "NAME";
+            // 
+            // ISADMIN
+            // 
+            this.ISADMIN.HeaderText = "ISADMIN";
+            this.ISADMIN.Name = "ISADMIN";
+            // 
             // Admin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(426, 402);
+            this.ClientSize = new System.Drawing.Size(893, 395);
+            this.Controls.Add(this.getup);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.delete);
             this.Controls.Add(this.btnAdd);
@@ -146,6 +192,7 @@
             this.Name = "Admin";
             this.Text = "Admin";
             this.Load += new System.EventHandler(this.Admin_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -162,5 +209,10 @@
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button delete;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button getup;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NAME;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ISADMIN;
     }
 }

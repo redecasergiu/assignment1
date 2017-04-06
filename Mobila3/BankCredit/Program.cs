@@ -13,10 +13,15 @@ namespace BankCredit
         [STAThread]
         static void Main()
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new Admin());
-            Application.Run(new Login());
+            try
+            {
+                Application.EnableVisualStyles();
+                Application.SetCompatibleTextRenderingDefault(false);
+                //Application.Run(new Admin());
+                Application.Run(new Login());
+            }
+            catch(Exception e) { MessageBox.Show(e.Message);
+            }
         }
     }
 }

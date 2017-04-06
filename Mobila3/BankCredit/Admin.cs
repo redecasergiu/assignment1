@@ -71,5 +71,16 @@ namespace BankCredit
 
             MessageBox.Show("Operation succesful");
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            UserOperations bl = new UserOperations();
+            IList<User> us = bl.getUsers();
+            dataGridView1.RowCount = 1;
+            foreach (User u in us)
+            {
+                dataGridView1.Rows.Add(u.id, u.name, u.isadmin);
+            }
+        }
     }
 }
