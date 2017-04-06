@@ -195,6 +195,7 @@ namespace BankCredit.DAL
             }
         }
 
+        //ignore this
         public IList<Account> GetAccountsForUser(int userID)
         {
             IList<Account> creditList = new List<Account>();
@@ -221,5 +222,37 @@ namespace BankCredit.DAL
 
             return creditList;
         }
+        
+
+        public IList<Product> getProducts()
+        {
+            IList<Product> productList = new List<Product>();
+            using (MySqlConnection conn = new MySqlConnection(connString))
+            {
+                conn.Open();
+                string statement = "select * from products";
+
+                MySqlCommand cmd = new MySqlCommand(statement, conn);
+                MySqlDataReader reader = cmd.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        Product products = new Product();
+                        products.id = reader.GetInt32("id");
+                        products.name = reader.GetString("name");
+                        products.description = reader.GetString("description");
+                        products.color = reader.GetString("color");
+                        products.size = reader.GetInt32("size");
+                        products.price = reader.GetInt32("price");
+                        products.stock = reader.GetInt32("stock");
+                        productList.Add(products);
+                    }
+                }
+            }
+            return productList;
+        }
+
+
     }
 }

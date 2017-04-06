@@ -64,6 +64,17 @@
             this.apld = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.cantitateb = new System.Windows.Forms.TextBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.getpb = new System.Windows.Forms.Button();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NAMEE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.D2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.COLOR = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SIZEE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PRICE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.STOCK = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.splitter1 = new System.Windows.Forms.Splitter();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // add
@@ -373,11 +384,84 @@
             this.cantitateb.Size = new System.Drawing.Size(156, 26);
             this.cantitateb.TabIndex = 3;
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ID,
+            this.NAMEE,
+            this.D2,
+            this.COLOR,
+            this.SIZEE,
+            this.PRICE,
+            this.STOCK});
+            this.dataGridView1.Location = new System.Drawing.Point(249, 504);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowTemplate.Height = 28;
+            this.dataGridView1.Size = new System.Drawing.Size(863, 143);
+            this.dataGridView1.TabIndex = 16;
+            // 
+            // getpb
+            // 
+            this.getpb.Location = new System.Drawing.Point(27, 598);
+            this.getpb.Name = "getpb";
+            this.getpb.Size = new System.Drawing.Size(185, 58);
+            this.getpb.TabIndex = 17;
+            this.getpb.Text = "Get Products";
+            this.getpb.UseVisualStyleBackColor = true;
+            this.getpb.Click += new System.EventHandler(this.getpb_Click);
+            // 
+            // ID
+            // 
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            // 
+            // NAMEE
+            // 
+            this.NAMEE.HeaderText = "NAME";
+            this.NAMEE.Name = "NAMEE";
+            // 
+            // D2
+            // 
+            this.D2.HeaderText = "DESCRIPTION";
+            this.D2.Name = "D2";
+            // 
+            // COLOR
+            // 
+            this.COLOR.HeaderText = "COLOR";
+            this.COLOR.Name = "COLOR";
+            // 
+            // SIZEE
+            // 
+            this.SIZEE.HeaderText = "SIZE";
+            this.SIZEE.Name = "SIZEE";
+            // 
+            // PRICE
+            // 
+            this.PRICE.HeaderText = "PRICE";
+            this.PRICE.Name = "PRICE";
+            // 
+            // STOCK
+            // 
+            this.STOCK.HeaderText = "STOCK";
+            this.STOCK.Name = "STOCK";
+            // 
+            // splitter1
+            // 
+            this.splitter1.Location = new System.Drawing.Point(0, 0);
+            this.splitter1.Name = "splitter1";
+            this.splitter1.Size = new System.Drawing.Size(10, 693);
+            this.splitter1.TabIndex = 18;
+            this.splitter1.TabStop = false;
+            // 
             // OrdinaryUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1146, 479);
+            this.ClientSize = new System.Drawing.Size(1146, 693);
+            this.Controls.Add(this.splitter1);
+            this.Controls.Add(this.getpb);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.apld);
             this.Controls.Add(this.view2);
@@ -417,6 +501,7 @@
             this.Name = "OrdinaryUser";
             this.Text = "Ordinary User";
             this.Load += new System.EventHandler(this.OrdinaryUser_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -460,5 +545,15 @@
         private System.Windows.Forms.Button apld;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox cantitateb;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button getpb;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NAMEE;
+        private System.Windows.Forms.DataGridViewTextBoxColumn D2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn COLOR;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SIZEE;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PRICE;
+        private System.Windows.Forms.DataGridViewTextBoxColumn STOCK;
+        private System.Windows.Forms.Splitter splitter1;
     }
 }

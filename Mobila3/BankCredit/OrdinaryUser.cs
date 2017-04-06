@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using BankCredit.BL;
+using BankCredit.Models;
 
 namespace BankCredit
 {
@@ -137,6 +138,17 @@ namespace BankCredit
             {
                 MessageBox.Show("Eroare", "Eroare",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void getpb_Click(object sender, EventArgs e)
+        {
+            ProductOperations bl = new ProductOperations();
+            IList<Product> ps = bl.getProducts();
+            dataGridView1.RowCount = 1;
+            foreach (Product p in ps)
+            {
+                dataGridView1.Rows.Add(p.id, p.name, p.description, p.color, p.size, p.price, p.stock);
             }
         }
     }

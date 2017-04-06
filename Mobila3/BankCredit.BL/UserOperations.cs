@@ -52,6 +52,7 @@ namespace BankCredit.BL
             dal.deleteUser(username);
         }
 
+
         public IList<Account> GetAccountsForUser(int userId)
         {
             DataAccess dal = new DataAccess();

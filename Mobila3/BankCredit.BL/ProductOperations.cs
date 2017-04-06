@@ -53,5 +53,11 @@ namespace BankCredit.BL
             dal.deleteProduct(p);
         }
 
+        public IList<Product> getProducts()
+        {
+            DataAccess dal = new DataAccess();
+            return dal.getProducts();
+        }
+
     }
 }
