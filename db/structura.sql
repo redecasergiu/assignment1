@@ -8,7 +8,7 @@ SET SQL_SAFE_UPDATES = 0;
 -- users
 create table `users`(
 	id int(6) unsigned primary key not null auto_increment,
-	`name` varchar(256),
+	`name` varchar(256) unique,
 	epass varchar(256),
 	salt varchar(256),
 	isadmin boolean default false
@@ -18,7 +18,7 @@ create table `users`(
 -- customersa
 create table `customers`(
 	id int(6) primary key not null auto_increment,
-	`name` varchar(80),
+	`name` varchar(80) unique,
 	phone varchar(40)
 );
 
@@ -26,7 +26,7 @@ create table `customers`(
 -- produse
 create table `products`(
 	id int(6) primary key not null auto_increment,
-	`name` varchar(128),
+	`name` varchar(128) unique,
 	description varchar(512),
 	color varchar(45),
 	`size` int(6),
@@ -105,8 +105,8 @@ insert into `productorders`(idproduct,idcommand,cantitate) values
 --------------------------------------------------------
 -- Proceduri
 --------------------------------------------------------
--- adauga produs
-drop procedure if exists deluser;
+-- adauga produs sau update stoc prin aditie
+drop procedure if exists addProduct;
 delimiter //
 create procedure addProduct(
 								`_name` varchar(128),
@@ -123,10 +123,10 @@ begin
 	from products
 	where products.name = _name;
 	
-	if @e is null then	-- adauga o noua intrare
+	if @e is null then	-- adauga o noua intrare daca produsul nu exista
 		insert into `products`(`name`,description,color,`size`,price,stock) values
 			(`_name`,_description,_color,`_size`,_price,_stock);
-	else	-- actualizeaza stocul vechii intrari
+	else	-- actualizeaza stocul vechii intrari prin aditie daca produsul exista
 		update `products`
         set `products`.stock = `products`.stock + _stock
         where id = @e;
@@ -203,5 +203,42 @@ begin
 	delete
 	from `products`
 	where `products`.name = _name;
+end //
+delimiter ;
+
+
+
+
+-- update product
+drop procedure if exists updateProduct;
+delimiter //
+create procedure updateProduct(
+								`_name` varchar(128),
+								_description varchar(512),
+								_color varchar(45),
+								`_size` int(4),
+								_price double,
+								_stock int(4)
+							)
+begin
+	set @e = null;
+
+	select id into @e
+	from products
+	where products.name = _name;
+	
+	if @e is null then	-- adauga o noua intrare daca produsul nu exista
+		insert into `products`(`name`,description,color,`size`,price,stock) values
+			(`_name`,_description,_color,`_size`,_price,_stock);
+	else	-- suprascrie vechea inregistrare
+		update `products`
+        set `products`.stock = _stock,
+			`products`.name = _name,
+			`products`.description = _description,
+			`products`.color = _color,
+			`products`.`size` = `_size`,
+			`products`.`price` = _price
+        where id = @e;
+	end if;
 end //
 delimiter ;
