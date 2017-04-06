@@ -27,5 +27,13 @@ namespace BankCredit.BL
             return true;
         }
 
+        public void deleteProduct(String n)
+        {
+            Product p = new Product();
+            p.name = n;
+            DataAccess dal = new DataAccess();
+            dal.deleteProduct(p);
+        }
+
     }
 }

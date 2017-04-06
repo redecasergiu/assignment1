@@ -98,5 +98,20 @@ namespace BankCredit
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void delete2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                String n = name2b.Text;
+                ProductOperations bl = new ProductOperations();
+                bl.deleteProduct(n);
+            }
+            catch (Exception q)
+            {
+                MessageBox.Show("Eroare", "Eroare",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

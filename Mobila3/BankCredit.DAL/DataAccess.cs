@@ -101,6 +101,22 @@ namespace BankCredit.DAL
             }
         }
 
+        public void deleteProduct(Product p)
+        {
+            using (MySqlConnection conn = new MySqlConnection(connString))
+            {
+                conn.Open();
+                MySqlCommand cmd = new MySqlCommand();
+                cmd.Connection = conn;
+                cmd.CommandText = "call deleteProduct(@name);";
+                cmd.Prepare();
+
+                cmd.Parameters.AddWithValue("@name", p.name);
+
+                cmd.ExecuteNonQuery();
+            }
+        }
+
 
         public void addOrder(Order o)
         {

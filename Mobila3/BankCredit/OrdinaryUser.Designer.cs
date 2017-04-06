@@ -187,7 +187,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(1062, 360);
+            this.label7.Location = new System.Drawing.Point(1071, 450);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(63, 20);
             this.label7.TabIndex = 12;
@@ -220,6 +220,7 @@
             this.delete2.TabIndex = 13;
             this.delete2.Text = "delete2";
             this.delete2.UseVisualStyleBackColor = true;
+            this.delete2.Click += new System.EventHandler(this.delete2_Click);
             // 
             // view2
             // 
