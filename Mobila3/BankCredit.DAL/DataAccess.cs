@@ -64,6 +64,25 @@ namespace BankCredit.DAL
             }
         }
 
+        public void updateUser(User user)
+        {
+            using (MySqlConnection conn = new MySqlConnection(connString))
+            {
+                conn.Open();
+                MySqlCommand cmd = new MySqlCommand();
+                cmd.Connection = conn;
+                cmd.CommandText = "call updateuser(@name, @epass, @salt, @isadmin)";
+                cmd.Prepare();
+
+                cmd.Parameters.AddWithValue("@name", user.name);
+                cmd.Parameters.AddWithValue("@epass", user.epass);
+                cmd.Parameters.AddWithValue("@salt", user.salt);
+                cmd.Parameters.AddWithValue("@isadmin", user.isadmin);
+
+                cmd.ExecuteNonQuery();
+            }
+        }
+
         public void deleteUser(String username)
         {
             using (MySqlConnection conn = new MySqlConnection(connString))

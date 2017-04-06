@@ -57,5 +57,19 @@ namespace BankCredit
 
             MessageBox.Show("Operation succesful");
         }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            User user = new User();
+            user.name = txtUserName.Text;
+            user.epass = txtPassword.Text;
+            user.salt = RandomString(32);
+            user.isadmin = chkAdmin.Checked;
+
+            UserOperations bl = new UserOperations();
+            bl.updateUser(user);
+
+            MessageBox.Show("Operation succesful");
+        }
     }
 }

@@ -36,6 +36,16 @@ namespace BankCredit.BL
             dal.AddUser(user);
         }
 
+
+        public void updateUser(User user)
+        {
+            Security secure = new Security();
+            user.epass = secure.HashSHA1(user.epass + user.salt);
+
+            DataAccess dal = new DataAccess();
+            dal.updateUser(user);
+        }
+
         public void DeleteUser(String username)
         {
             DataAccess dal = new DataAccess();
