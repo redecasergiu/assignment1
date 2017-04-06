@@ -2,6 +2,8 @@ drop database if exists assignment1;
 create database assignment1;
 use assignment1;
 
+SET SQL_SAFE_UPDATES = 0;
+
 
 -- users
 create table `users`(
@@ -52,7 +54,7 @@ create table `productorders`(
 	idproduct int(6),
 	idcommand int(6),
 	cantitate int(6),
-	foreign key (idproduct) references products(id),
+	foreign key (idproduct) references products(id) ON DELETE SET NULL,
 	foreign key (idcommand) references orders(id)
 );
 
@@ -67,8 +69,8 @@ create table `productorders`(
 -- Populare
 --------------------------------------------------------
 insert into `users`(`name`,epass,salt,isadmin) values
-("root","DC76E9F0C0006E8F919E0C515C66DBBA3982F785","",true),
-("a","86F7E437FAA5A7FCE15D1DDCB9EAEAEA377667B8","",false);
+("root","DC76E9F0C0006E8F919E0C515C66DBBA3982F785","",true),	-- root:root
+("a","86F7E437FAA5A7FCE15D1DDCB9EAEAEA377667B8","",false);		-- a:a
 
 insert into `customers`(`name`,phone) values
 ("Alex", "0715125361"),
@@ -191,3 +193,15 @@ begin
 end //
 delimiter ;
 
+
+
+-- delete product
+drop procedure if exists deleteProduct;
+delimiter //
+create procedure deleteProduct(_name varchar(45))
+begin
+	delete
+	from `products`
+	where `products`.name = _name;
+end //
+delimiter ;
