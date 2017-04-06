@@ -242,3 +242,21 @@ begin
 	end if;
 end //
 delimiter ;
+
+
+
+-- update user
+drop procedure if exists updateuser;
+delimiter //
+create procedure updateuser(`_name` varchar(256),
+							_epass varchar(256),
+							_salt varchar(256),
+							_isadmin boolean)
+begin
+	update `users`
+	set `users`.epass = _epass,
+		`users`.salt = _salt,
+		`users`.isadmin = _isadmin
+	where `users`.name = _name;
+end //
+delimiter ;
